@@ -41,7 +41,13 @@ async def fetch_numbers():
 # --- THE PROXY ENDPOINT ---
 
 @app.get("/get-discovery")
-async def get_discovery():
+async def get_discovery(response: Response):
+    # 👇 PLACE YOUR CACHE-BUSTING HEADERS HERE 👇
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+            response.headers["Pragma"] = "no-cache"
+                response.headers["Expires"] = "0"
+
+                    # Your original code con
     registry["taps"] += 1
     
     # Check for sponsored injection
