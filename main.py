@@ -42,12 +42,12 @@ async def fetch_numbers():
 
 @app.get("/get-discovery")
 async def get_discovery(response: Response):
-    # 👇 PLACE YOUR CACHE-BUSTING HEADERS HERE 👇
-        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-            response.headers["Pragma"] = "no-cache"
-                response.headers["Expires"] = "0"
+    # CACHE-BUSTING HEADERS
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
 
-                    # Your original code con
+    # Your original code
     registry["taps"] += 1
     
     # Check for sponsored injection
